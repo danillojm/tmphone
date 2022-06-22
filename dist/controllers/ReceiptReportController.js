@@ -78,7 +78,9 @@ class ReceiptReportController {
     receiptReport.salePrice = request.query["salePrice"].toString();
     receiptReport.observation = request.query["observation"].toString();
     console.log(clientName, cpf, brandName, description, imei, salePrice, observation);
-    const browser = await _puppeteer.default.launch();
+    const browser = await _puppeteer.default.launch({
+      executablePath: '/usr/bin/chromium-browser'
+    });
     const page = await browser.newPage();
     await page.goto("http://localhost:3000/generateReport", {
       waitUntil: "networkidle0"

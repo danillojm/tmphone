@@ -55,7 +55,9 @@ export class ReceiptReportController {
 		receiptReport.observation = request.query["observation"].toString();
 
 		console.log(clientName, cpf, brandName, description, imei, salePrice, observation);
-		const browser = await puppeteer.launch();
+		const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser'
+    });
 		const page = await browser.newPage();
 
 		await page.goto("http://localhost:3000/generateReport", {
