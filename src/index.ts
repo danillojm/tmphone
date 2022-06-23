@@ -1,7 +1,7 @@
-import express from "express";
-import { router } from "./routes";
-import path from "path";
 import cors from "cors";
+import express from "express";
+import path from "path";
+import { router } from "./routes";
 const app = express();
 
 app.use(express.json());
@@ -15,4 +15,5 @@ app.use(express.urlencoded());
 app.use(router);
 
 app.listen(3000, () => { console.log('iniciado...'); });
+
 
